@@ -1,74 +1,79 @@
-import { Image, StyleSheet, Platform } from 'react-native';
-
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import React, { useState, useEffect } from 'react';
+import { Button, View, Text, StyleSheet, TouchableWithoutFeedback, Keyboard } from 'react-native';
 
 export default function HomeScreen() {
+  const [currentTime, setCurrentTime] = useState(0); // Секунд
+  const [currentMilliseconds, setCurrentMilliseconds] = useState(0); // Миллисекунд
+  const [isRunning, setIsRunning] = useState(false); // Цаг явж байна уу, үгүй юу
+  const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null); // Interval ID-ийг хадгалах
+
+  // Цаг эхлүүлэх
+  const startClock = () => {
+    if (intervalId) return; // Хэрэв аль хэдийн цаг явж байгаа бол дахин эхлүүлэхгүй
+    const id = setInterval(() => {
+      setCurrentMilliseconds((prevMilliseconds) => {
+        if (prevMilliseconds === 999) {
+          setCurrentTime((prevTime) => prevTime + 1); // Секундыг 1 нэгжээр нэмнэ
+          return 0; // Миллисекундийг 0 болгож шинэчлэнэ
+        }
+        return prevMilliseconds + 1; // Миллисекундыг 1 нэмнэ
+      });
+    }, 1); // Миллисекундыг 1 миллисекунд тутамд нэмнэ
+    setIntervalId(id); // Interval ID-ийг хадгална
+    setIsRunning(true); // Цаг явж эхэллээ
+  };
+
+  // Цаг зогсоох
+  const stopClock = () => {
+    if (intervalId) {
+      clearInterval(intervalId); // Цагийг зогсооно
+      setIntervalId(null); // Interval ID-ийг устгана
+      setIsRunning(false); // Цаг зогссон гэж тэмдэглэнэ
+    }
+  };
+
+  // Цагийг зогсоогоод хаана ч дараагүй бол компонент дараа нь зогссон хэвээр байх
+  useEffect(() => {
+    // Компонент дэлгэцээс гарах үед цагийг зогсоох
+    return () => {
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+    };
+  }, [intervalId]);
+
+  // Дэлгэцийн бүх орчинд дарах үед цагийг эхлүүлэх/зогсоох
+  const handleTouch = () => {
+    if (isRunning) {
+      stopClock(); // Хэрэв цаг явж байвал зогсооно
+    } else {
+      startClock(); // Хэрэв цаг зогссон бол эхлүүлнэ
+    }
+  };
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <TouchableWithoutFeedback onPress={handleTouch}>
+      <View style={styles.container}>
+        {/* Секунд болон Миллисекунд гарч ирэх хэсэг */}
+        <Text style={styles.timeText}>
+          {`Elapsed Time: ${currentTime}.${currentMilliseconds.toString().padStart(3, '0')} seconds`}
+        </Text>
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
+  container: {
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
-    gap: 8,
+    backgroundColor: '#f5f5f5', // Тайван өнгөний тохиргоо
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  timeText: {
+    fontSize: 48,  // Том текст
+    fontWeight: 'bold',
+    marginBottom: 20,
+    color: '#4CAF50',  // Дараах секундын өнгө
   },
 });
