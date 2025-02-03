@@ -115,7 +115,7 @@ const FirstRoute = () => (
       <View style={{}}>
         <Text style={{ fontSize: 10 }}>Аудио ном</Text>
       </View>
-      <ScrollView
+      <ScrollView showsHorizontalScrollIndicator={false}
         horizontal={true}
         contentContainerStyle={{
           alignItems: "center",
@@ -126,7 +126,7 @@ const FirstRoute = () => (
           //borderWidth: 1,
         }}
       >
-        <ScrollView horizontal={true}>
+        <ScrollView  showsHorizontalScrollIndicator={false} horizontal={true}>
           <View>
             <Image
               style={styles.imgContainer}
@@ -230,7 +230,7 @@ const FirstRoute = () => (
           
         </ScrollView>
       </ScrollView>
-    <ScrollView>
+    <ScrollView showsHorizontalScrollIndicator={false}>
     <View style={{ flexDirection: "row" }}>
         <Text style={{ fontWeight: 800 }}>Зөвхөн Мbook-ээс </Text>
         <AntDesign name="star" size={18} color="gold" />
@@ -238,7 +238,7 @@ const FirstRoute = () => (
       <View style={{}}>
         <Text style={{ fontSize: 10 }}>Аудио номнууд</Text>
       </View>
-      <ScrollView
+      <ScrollView showsHorizontalScrollIndicator={false}
         horizontal={true}
         contentContainerStyle={{
           alignItems: "center",
@@ -249,12 +249,12 @@ const FirstRoute = () => (
           //borderWidth: 1,
         }}
       >
-        <ScrollView horizontal={true}>
+        <ScrollView  showsHorizontalScrollIndicator={false} horizontal={true}>
           <View>
             <Image
               style={styles.imgContainer}
               source={{
-                uri: "https://th.bing.com/th/id/OIP.BYw2010cO4YfAQ2QI_rlXQHaMA?w=115&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+                uri: "",
               }}
             />
             <Text style={{ color: "gray", marginLeft: 10 }}>Ү Чэн Энь </Text>
@@ -354,7 +354,7 @@ const FirstRoute = () => (
         </ScrollView>
       </ScrollView>
     </ScrollView>
-    <ScrollView>
+    <ScrollView showsHorizontalScrollIndicator={false}>
     <View style={{ flexDirection: "row" }}>
         <Text style={{ fontWeight: 800 }}>Анх удаа ном сонсох гэж байна уу? </Text>
         
@@ -363,7 +363,7 @@ const FirstRoute = () => (
       <View style={{}}>
         <Text style={{ fontSize: 10 }}>Унших завгүй бол СОНСООД үз</Text>
       </View>
-      <ScrollView
+      <ScrollView showsHorizontalScrollIndicator={false}
         horizontal={true}
         contentContainerStyle={{
           alignItems: "center",
@@ -479,13 +479,13 @@ const FirstRoute = () => (
         </ScrollView>
       </ScrollView>
     </ScrollView>
-    <ScrollView>
-    <View style={{ flexDirection: "row" }}>
+    <ScrollView showsHorizontalScrollIndicator={false}>
+    <View style={{ flexDirection: "row" }}>3
         <Text style={{ fontWeight: 800 }}>Багц Номнууд </Text>
         <AntDesign name="star" size={18} color="gold" />
       </View>
       
-      <ScrollView
+      <ScrollView showsHorizontalScrollIndicator={false}
         horizontal={true}
         contentContainerStyle={{
           alignItems: "center",
@@ -496,7 +496,7 @@ const FirstRoute = () => (
           //borderWidth: 1,
         }}
       >
-        <ScrollView horizontal={true}>
+        <ScrollView  showsHorizontalScrollIndicator={false} horizontal={true}>
           <View>
             <Image
               style={styles.imgContainer}
