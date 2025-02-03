@@ -3,7 +3,7 @@ import { Button, View, Text, StyleSheet, TouchableWithoutFeedback, Keyboard } fr
 
 export default function HomeScreen() {
   const [currentTime, setCurrentTime] = useState(0); // Секунд
-  const [currentMilliseconds, setCurrentMilliseconds] = useState(0); // Миллисекунд
+k,l  const [currentMilliseconds, setCurrentMilliseconds] = useState(0); // Миллисекунд
   const [isRunning, setIsRunning] = useState(false); // Цаг явж байна уу, үгүй юу
   const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null); // Interval ID-ийг хадгалах
 
