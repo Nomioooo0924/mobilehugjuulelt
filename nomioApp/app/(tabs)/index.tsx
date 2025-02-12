@@ -232,8 +232,17 @@ const FirstRoute = () => (
       </ScrollView>
     <ScrollView showsHorizontalScrollIndicator={false}>
     <View style={{ flexDirection: "row" }}>
+      <View style={{ flexDirection: "row" }}>
         <Text style={{ fontWeight: 800 }}>Зөвхөн Мbook-ээс </Text>
         <AntDesign name="star" size={18} color="gold" />
+      </View>
+      <View style={{flexDirection:"row",
+                    alignItems:"center",
+                    flex:1,
+                    justifyContent:"flex-end"}}>  
+        <Text style={{ fontWeight: 800 }}>Бүгд </Text>
+        <AntDesign name="right" size={18} color="black" />
+      </View>
       </View>
       <View style={{}}>
         <Text style={{ fontSize: 10 }}>Аудио номнууд</Text>
