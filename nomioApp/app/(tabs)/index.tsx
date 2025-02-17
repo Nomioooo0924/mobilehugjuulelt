@@ -1856,7 +1856,7 @@ const FirstRoute = () => (
                 }}
               />
               <Text style={{ color: "gray", marginLeft: 10 }}>Харуки Мураками</Text>
-              <Text style={{ fontSize: 10, marginLeft: 10 }}>Хилийн дээснээс урагшхан алтан нарнаас баруунта. </Text>
+              <Text  numberOfLines={5} style={{ fontSize: 10, marginLeft: 10, margin:100 }}>Хилийн дээснээс урагшхан алтан нарнаас баруунта. </Text>
             </View>
             <View>
               <Image
@@ -1866,7 +1866,7 @@ const FirstRoute = () => (
                 }}
               />
               <Text style={{ color: "gray", marginLeft: 10 }}>Франц Кафка</Text>
-              <Text style={{ fontSize: 10, marginLeft: 10 }}> Хувирал</Text>
+              <Text  numberOfLines={5} style={{ fontSize: 10, marginLeft: 10, margin:100 }}> Хувирал</Text>
             </View>
             <View>
               <Image
@@ -1876,7 +1876,7 @@ const FirstRoute = () => (
                 }}
               />
               <Text style={{ color: "gray", marginLeft: 10 }}>Кацухико Сато </Text>
-              <Text style={{ fontSize: 10, marginLeft: 10 }}>Нойр хулжаам сансар огторгуй   </Text>
+              <Text  numberOfLines={5} style={{ fontSize: 10, marginLeft: 10, margin:100 }}>Нойр хулжаам сансар огторгуй   </Text>
             </View>
             <View>
               <Image
@@ -1896,7 +1896,7 @@ const FirstRoute = () => (
                 }}
               />
               <Text style={{ color: "gray", marginLeft: 10 }}>Тим Рэйборон </Text>
-              <Text style={{ fontSize: 10, marginLeft: 10 }}>Аз жаргалын скандинав хөтөч  </Text>
+              <Text  numberOfLines={5} style={{ fontSize: 10, marginLeft: 10, margin:100 }}>Аз жаргалын скандинав хөтөч  </Text>
             </View>
             <View>
               <Image
@@ -1906,7 +1906,7 @@ const FirstRoute = () => (
                 }}
               />
               <Text style={{ color: "gray", marginLeft: 10 }}>Крисбосс </Text>
-              <Text style={{ fontSize: 10, marginLeft: 10 }}>Хочрын хооронд хэлэлцээ бүү хий  </Text>
+              <Text  numberOfLines={5} style={{ fontSize: 10, marginLeft: 10, margin:100 }}>Хочрын хооронд хэлэлцээ бүү хий  </Text>
             </View>
             <View>
               <Image
@@ -1926,7 +1926,7 @@ const FirstRoute = () => (
                 }}
               />
               <Text style={{ color: "gray", marginLeft: 10 }}>Девид Сөрвен</Text>
-              <Text style={{ fontSize: 10, marginLeft: 10 }}>Хорт хавдрбн эсрэг амьдралын шинэ хэв маяг </Text>
+              <Text  numberOfLines={5} style={{ fontSize: 10, marginLeft: 10 , margin:100}}>Хорт хавдрбн эсрэг амьдралын шинэ хэв маяг </Text>
             </View>
             <View>
               <Image
